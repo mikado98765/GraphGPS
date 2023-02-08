@@ -65,7 +65,9 @@ class GPSModel(torch.nn.Module):
             self.pre_mp = GNNPreMP(
                 dim_in, cfg.gnn.dim_inner, cfg.gnn.layers_pre_mp)
             dim_in = cfg.gnn.dim_inner
-
+        print(dim_in)
+        print(cfg.gnn.dim_inner)
+        print(cfg.gt.dim_hidden)
         assert cfg.gt.dim_hidden == cfg.gnn.dim_inner == dim_in, \
             "The inner and hidden dims must match."
 

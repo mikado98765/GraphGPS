@@ -106,7 +106,7 @@ class CustomLogger(Logger):
         }
         if cfg.metric_best == 'accuracy-SBM':
             res['accuracy-SBM'] = reformat(accuracy_SBM(true, pred_int))
-        if true.shape[0] < 1e7:
+        if False and true.shape[0] < 1e7:
             # AUROC computation for very large datasets runs out of memory.
             # TorchMetrics AUROC on GPU is much faster than sklearn for large ds
             res['auc'] = reformat(auroc(pred_score.to(torch.device(cfg.device)),
